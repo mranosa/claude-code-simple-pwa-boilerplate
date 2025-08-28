@@ -92,8 +92,23 @@ These permissions are configured in `.claude/settings.json`.
 
 ### Development Commands
 
-Since this is a skeleton project for testing hooks, the main commands are:
+#### Initialize PWA Boilerplate
+```bash
+/init
+```
+This command scaffolds the complete PWA boilerplate with:
+- Next.js 15.3+ with App Router
+- Full tech stack from TECHSTACK.md
+- PWA configuration (manifest, service worker)
+- Testing setup (Vitest, Playwright)
+- All required dependencies
 
+After running `/init`:
+1. Replace placeholder icons in `/public/icons`
+2. Configure environment variables in `.env.local`
+3. Run `pnpm dev` to start development
+
+#### Hook Testing Commands
 ```bash
 # Test hooks by interacting with Claude Code
 # The hooks will automatically fire based on your interactions
