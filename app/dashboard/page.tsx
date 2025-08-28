@@ -6,7 +6,9 @@ export default function DashboardPage() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <div className="container mx-auto p-6 space-y-6">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Dashboard</h1>
+          <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            Dashboard
+          </h1>
           <p className="text-gray-600 mt-2">Welcome to your PWA dashboard</p>
         </div>
 
@@ -59,13 +61,15 @@ export default function DashboardPage() {
         <Card className="col-span-full border-0 shadow-lg bg-white">
           <CardHeader className="border-b bg-gray-50/50">
             <CardTitle className="text-xl font-bold text-gray-900">Recent Activity</CardTitle>
-            <CardDescription className="text-gray-600">Latest events from your application</CardDescription>
+            <CardDescription className="text-gray-600">
+              Latest events from your application
+            </CardDescription>
           </CardHeader>
           <CardContent className="pt-6">
             <div className="space-y-4">
               <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors">
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-green-500 mt-1.5"></div>
+                  <div className="w-2 h-2 rounded-full bg-green-500 mt-1.5" />
                   <div>
                     <p className="text-sm font-semibold text-gray-900">User Registration</p>
                     <p className="text-xs text-gray-500">New user signed up</p>
@@ -75,7 +79,7 @@ export default function DashboardPage() {
               </div>
               <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors">
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-blue-500 mt-1.5"></div>
+                  <div className="w-2 h-2 rounded-full bg-blue-500 mt-1.5" />
                   <div>
                     <p className="text-sm font-semibold text-gray-900">PWA Installation</p>
                     <p className="text-xs text-gray-500">App installed on mobile device</p>
@@ -85,7 +89,7 @@ export default function DashboardPage() {
               </div>
               <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors">
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-purple-500 mt-1.5"></div>
+                  <div className="w-2 h-2 rounded-full bg-purple-500 mt-1.5" />
                   <div>
                     <p className="text-sm font-semibold text-gray-900">Offline Sync</p>
                     <p className="text-xs text-gray-500">Data synced after reconnection</p>
