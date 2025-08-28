@@ -13,7 +13,7 @@
 ## State Management
 - **TanStack Query v5** - Server state, caching, background refetch
 - **Zustand** - Client state (UI, local preferences)
-- **@tanstack/query-persist-client** - IndexedDB persistence
+- **@tanstack/react-query-persist-client** - IndexedDB persistence
 
 ## Offline-First Architecture
 - **PowerSync** - Supabase sync with offline support
@@ -43,7 +43,6 @@
 ## Development Tools
 - **pnpm** - Fast, disk-efficient package manager
 - **Biome** - Fast linting/formatting (replaces ESLint+Prettier)
-- **Husky + lint-staged** - Pre-commit hooks
 
 ## Deployment
 - **Vercel** - Auto-deploy on push, edge functions, preview deployments
@@ -130,7 +129,7 @@
   "@supabase/supabase-js": "^2.45.0",
   "@supabase/ssr": "^0.5.0",
   "@tanstack/react-query": "^5.0.0",
-  "@tanstack/query-persist-client": "^5.0.0",
+  "@tanstack/react-query-persist-client": "^5.0.0",
   "zustand": "^5.0.0",
   "react-hook-form": "^7.53.0",
   "zod": "^3.23.0",
@@ -151,9 +150,7 @@
   "vitest": "^2.0.0",
   "@playwright/test": "^1.48.0",
   "@testing-library/react": "^16.0.0",
-  "@biomejs/biome": "^1.9.0",
-  "husky": "^9.0.0",
-  "lint-staged": "^15.0.0"
+  "@biomejs/biome": "^1.9.0"
 }
 ```
 
