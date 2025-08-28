@@ -1,0 +1,10 @@
+{
+  "enabled": true,
+  "voiceName": "Badong",
+  "modelId": "eleven_turbo_v2_5",
+  "stability": 0.5,
+  "similarityBoost": 0.8,
+  "speakAssistantMessages": true,
+  "speakNotifications": true,
+  "speakCompletions": true
+}
