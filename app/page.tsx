@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { CheckCircle2, Smartphone, Wifi, Zap } from 'lucide-react'
+import Link from 'next/link'
 
 export default function HomePage() {
   return (
