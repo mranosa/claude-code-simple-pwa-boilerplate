@@ -1,19 +1,28 @@
 # PWA Boilerplate
 
-Production-ready Progressive Web Application boilerplate with Next.js 15, TypeScript, Supabase, and offline-first architecture.
+> 🚀 **AI-Powered Development**: Production-ready PWA boilerplate with self-evolving Claude Code agents that build features using Test-Driven Development.
 
-## Features
+## ✨ What Makes This Special
 
-- ⚡ **Next.js 15.3** with App Router and React 19
-- 🔒 **TypeScript** for type safety
-- 💾 **Offline-First** with PowerSync + Supabase
-- 📱 **PWA Ready** with service worker via Serwist
-- 🎨 **Tailwind CSS v4** with modern CSS features
-- 🚀 **100 Lighthouse Score** out of the box
-- 🔄 **Real-time sync** with conflict resolution
-- 🛡️ **Security first** with CSP headers and RLS
+This isn't just a boilerplate - it's an **intelligent development system** that writes, tests, and deploys features for you:
 
-## Quick Start
+### 🤖 AI-Driven Development
+- **7 Specialized Agents** - Each expert in their domain (UI, API, Testing, etc.)
+- **Self-Evolving** - Agents learn from every feature and improve over time
+- **TDD by Default** - Tests are written BEFORE implementation
+- **Natural Language** - Just describe features: "Add user authentication"
+
+### ⚡ Technical Excellence
+- **Next.js 15.3** with App Router and React 19
+- **TypeScript** - 100% type safety
+- **Offline-First** - PowerSync + Supabase synchronization  
+- **PWA Ready** - Installable with service worker via Serwist
+- **Tailwind CSS v4** - Modern styling with OKLCH colors
+- **100 Lighthouse Score** - Performance optimized out of the box
+- **Real-time** - Live updates with conflict resolution
+- **Security First** - CSP headers, RLS, security audits
+
+## 🎯 Quick Start (2 minutes)
 
 ```bash
 # Clone the repository
@@ -29,6 +38,54 @@ cp .env.sample .env.local
 # Start development server
 pnpm dev
 ```
+
+## 🤖 AI-Powered Feature Development
+
+### How to Build Features (It's Magic!)
+
+1. **Just Ask** - Describe what you want in plain English:
+   ```
+   "Add user authentication with email/password and social login"
+   ```
+
+2. **Agents Take Over** - Watch as specialized AI agents:
+   - Create comprehensive specifications
+   - Write all tests first (TDD)
+   - Build the implementation
+   - Ensure offline capability
+   - Validate quality standards
+
+3. **Done!** - Feature is built, tested, and production-ready
+
+### Example Commands
+
+```bash
+# Authentication
+"Add user authentication with biometric support"
+
+# Real-time Features
+"Create a chat system with typing indicators"
+
+# E-commerce
+"Build shopping cart with Stripe payments"
+
+# Dashboard
+"Create analytics dashboard with real-time charts"
+```
+
+### Meet Your AI Development Team
+
+| Agent | Role | What They Do |
+|-------|------|-------------|
+| **spec** | Feature Architect | Creates detailed specifications |
+| **test** | TDD Guardian | Writes comprehensive tests first |
+| **ui** | Visual Designer | Builds beautiful, accessible interfaces |
+| **api** | Backend Engineer | Creates robust APIs and integrations |
+| **data** | Data Expert | Manages database and offline sync |
+| **pwa** | Mobile Specialist | Ensures native app-like experience |
+| **ship** | Quality Assurance | Validates and deploys safely |
+
+Agents learn and improve with every feature built!
 
 ## Tech Stack
 
@@ -157,6 +214,38 @@ Referrer-Policy: strict-origin-when-cross-origin
 Permissions-Policy: camera=(), microphone=(), geolocation=()
 ```
 
+## 💡 Feature Development Workflow
+
+### Traditional Way vs AI-Powered Way
+
+#### Traditional Development
+1. Plan feature manually
+2. Write code
+3. Write tests (maybe)
+4. Debug issues
+5. Optimize performance
+6. Deploy and hope
+
+#### AI-Powered Development (This Boilerplate)
+1. Describe feature: "Add user profiles with avatar upload"
+2. AI agents handle everything:
+   - Spec creation
+   - Test-first development
+   - Implementation
+   - Optimization
+   - Quality assurance
+3. Review and deploy
+
+### Feature Specifications
+
+Every feature gets a comprehensive spec in `features/`:
+- Business requirements
+- Visual design specs
+- Technical architecture
+- Testing strategy
+- Performance budgets
+- Implementation phases
+
 ## Development Guidelines
 
 ### Component Patterns
@@ -184,7 +273,14 @@ Permissions-Policy: camera=(), microphone=(), geolocation=()
 - Test coverage reporting
 - Path aliases configured
 
-## Deployment
+## 🚢 Deployment
+
+The `ship` agent ensures production readiness with:
+- Automated quality checks
+- Performance validation
+- Security audits
+- Progressive rollout
+- Monitoring setup
 
 ### Vercel (Recommended)
 ```bash
@@ -289,8 +385,45 @@ pnpm install
 pnpm build
 ```
 
-## Resources
+## 📊 Agent Performance Metrics
 
+Agents track and improve based on:
+- **Code Quality** - Bug escape rate, test coverage
+- **Performance** - Build time, runtime metrics
+- **User Experience** - Accessibility scores, Core Web Vitals
+- **Developer Satisfaction** - Time saved, features delivered
+
+### Self-Evolution in Action
+
+Agents automatically:
+- Learn from implementation outcomes
+- Adapt to your coding style
+- Optimize based on usage patterns
+- Share learnings between agents
+- Improve with every feature
+
+## 🛠️ Advanced Agent Usage
+
+### Direct Agent Commands
+
+```bash
+# Request specific agent
+"Have the ui agent improve this design"
+"Get the test agent to add edge cases"
+"Ask ship agent to audit performance"
+```
+
+### Agent Configuration
+
+Customize agents in `.claude/agents/`:
+- Adjust specializations
+- Add domain knowledge
+- Configure tools
+- Set quality thresholds
+
+## 📚 Resources
+
+### Documentation
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Tailwind CSS v4](https://tailwindcss.com)
 - [Supabase Docs](https://supabase.com/docs)
@@ -298,10 +431,37 @@ pnpm build
 - [Serwist Documentation](https://serwist.pages.dev)
 - [shadcn/ui Components](https://ui.shadcn.com)
 
+### AI Development
+- [Claude Code Documentation](https://docs.anthropic.com/claude-code)
+- See `CLAUDE.md` for detailed agent documentation
+- Check `features/` for example specifications
+
+## 🎓 Why This Boilerplate?
+
+### For Startups
+- Ship features 10x faster
+- Consistent code quality
+- Built-in best practices
+- Scale without technical debt
+
+### For Developers
+- Focus on business logic
+- Learn from AI patterns
+- Automated testing
+- Self-documenting code
+
+### For Enterprises
+- Production-ready from day one
+- Security and compliance built-in
+- Consistent architecture
+- Reduced development costs
+
 ## License
 
 MIT
 
 ---
 
-Built with ❤️ using modern web technologies. Ready for production deployment.
+**Built with ❤️ and AI** - Where developers and AI agents work together to create exceptional web applications.
+
+*Ready for production. Ready for the future.*
