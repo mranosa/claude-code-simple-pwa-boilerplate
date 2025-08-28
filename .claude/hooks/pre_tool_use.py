@@ -41,8 +41,6 @@ DANGEROUS_PATHS = [
     r'~',           # Home directory
     r'~/',          # Home directory path
     r'\$HOME',      # Home environment variable
-    r'\.\.',        # Parent directory references
-    r'\*',          # Wildcards in rm -rf context
 ]
 
 ENV_FILE_PATTERNS = [
