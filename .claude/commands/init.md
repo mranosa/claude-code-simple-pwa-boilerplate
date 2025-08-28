@@ -1,6 +1,6 @@
-# /init Command
+# Initialize PWA boilerplate artifacts
 
-This command initializes the PWA boilerplate with the complete tech stack defined in TECHSTACK.md.
+Scaffolds a production-ready PWA with Next.js 15, TypeScript, Supabase, and offline-first capabilities.
 
 ## What it does:
 

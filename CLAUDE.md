@@ -96,12 +96,7 @@ These permissions are configured in `.claude/settings.json`.
 ```bash
 /init
 ```
-This command scaffolds the complete PWA boilerplate with:
-- Next.js 15.3+ with App Router
-- Full tech stack from TECHSTACK.md
-- PWA configuration (manifest, service worker)
-- Testing setup (Vitest, Playwright)
-- All required dependencies
+Scaffolds a production-ready PWA with Next.js 15, TypeScript, Supabase, and offline-first capabilities.
 
 After running `/init`:
 1. Replace placeholder icons in `/public/icons`
