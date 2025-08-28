@@ -45,13 +45,17 @@ pnpm add \
   @supabase/supabase-js@latest \
   @supabase/ssr@latest \
   @tanstack/react-query@^5.0.0 \
-  @tanstack/query-persist-client@^5.0.0 \
   zustand@latest \
   react-hook-form@latest \
   zod@latest \
   @hookform/resolvers@latest \
   lucide-react@latest \
   @serwist/next@latest \
+  @serwist/precaching@latest \
+  @serwist/sw@latest \
+  @serwist/strategies@latest \
+  @serwist/expiration@latest \
+  @serwist/routing@latest \
   @powersync/react@latest \
   clsx@latest \
   tailwind-merge@latest \
@@ -62,6 +66,8 @@ echo "🔧 Installing dev dependencies..."
 pnpm add -D \
   @types/react@latest \
   @types/node@latest \
+  @types/serviceworker@latest \
+  @tailwindcss/postcss@latest \
   vitest@latest \
   @vitejs/plugin-react@latest \
   @playwright/test@latest \
@@ -70,7 +76,8 @@ pnpm add -D \
   jsdom@latest \
   @biomejs/biome@latest \
   husky@latest \
-  lint-staged@latest
+  lint-staged@latest \
+  @tanstack/react-query-devtools@latest
 
 # Create project structure
 echo "📁 Creating project structure..."
@@ -170,21 +177,69 @@ EOF
 # Create service worker
 echo "🔧 Creating service worker..."
 cat > app/sw.ts << 'EOF'
-import { defaultCache } from "@serwist/next/browser";
+/// <reference lib="webworker" />
 import type { PrecacheEntry } from "@serwist/precaching";
 import { installSerwist } from "@serwist/sw";
+import { NetworkFirst, StaleWhileRevalidate, CacheFirst } from "@serwist/strategies";
+import { ExpirationPlugin } from "@serwist/expiration";
+import { registerRoute } from "@serwist/routing";
 
 declare const self: ServiceWorkerGlobalScope & {
   __SW_MANIFEST: (PrecacheEntry | string)[] | undefined;
 };
 
+// Precache all static assets
 installSerwist({
   precacheEntries: self.__SW_MANIFEST,
   skipWaiting: true,
   clientsClaim: true,
   navigationPreload: true,
-  runtimeCaching: defaultCache,
+  runtimeCaching: [],
 });
+
+// Cache page navigations (html) with network-first strategy
+registerRoute(
+  ({ request }) => request.mode === "navigate",
+  new NetworkFirst({
+    cacheName: "pages",
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 10,
+        maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+      }),
+    ],
+  })
+);
+
+// Cache JS and CSS with stale-while-revalidate
+registerRoute(
+  ({ request }) =>
+    request.destination === "script" ||
+    request.destination === "style",
+  new StaleWhileRevalidate({
+    cacheName: "static-resources",
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 60,
+        maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+      }),
+    ],
+  })
+);
+
+// Cache images with cache-first
+registerRoute(
+  ({ request }) => request.destination === "image",
+  new CacheFirst({
+    cacheName: "images",
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 100,
+        maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+      }),
+    ],
+  })
+);
 EOF
 
 # Create Supabase client
@@ -397,7 +452,7 @@ EOF
 
 # Create environment files
 echo "🔐 Creating environment files..."
-cat > .env.example << 'EOF'
+cat > .env.sample << 'EOF'
 # Supabase
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
@@ -582,9 +637,16 @@ packageJson.scripts = {
 fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2));
 "
 
-# Install TanStack Query devtools
-echo "🔧 Installing additional dev tools..."
-pnpm add -D @tanstack/react-query-devtools
+# Fix PostCSS configuration for Tailwind CSS v4
+echo "🔧 Updating PostCSS configuration..."
+cat > postcss.config.js << 'EOF'
+module.exports = {
+  plugins: {
+    '@tailwindcss/postcss': {},
+    autoprefixer: {},
+  },
+};
+EOF
 
 # Generate basic PWA icons (placeholder)
 echo "🎨 Creating placeholder icons..."
@@ -599,7 +661,7 @@ echo "✅ PWA Boilerplate initialization complete!"
 echo ""
 echo "📋 Next steps:"
 echo "1. Replace placeholder icons in /public/icons with actual PWA icons"
-echo "2. Configure environment variables in .env.local"
+echo "2. Configure environment variables in .env.local (copy from .env.sample)"
 echo "3. Run 'pnpm dev' to start the development server"
 echo "4. Initialize shadcn/ui components: 'pnpm dlx shadcn@latest add button'"
 echo ""
